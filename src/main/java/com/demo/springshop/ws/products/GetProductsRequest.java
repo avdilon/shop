@@ -6,11 +6,10 @@
 //
 
 
-package com.demo.springshop.ws;
+package com.demo.springshop.ws.products;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="greeting" type="{http://springshop.demo.com/ws/}greeting"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,37 +33,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "greeting"
-})
-@XmlRootElement(name = "getGreetingResponse")
-public class GetGreetingResponse {
+@XmlType(name = "")
+@XmlRootElement(name = "getProductsRequest")
+public class GetProductsRequest {
 
-    @XmlElement(required = true)
-    protected Greeting greeting;
-
-    /**
-     * Gets the value of the greeting property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Greeting }
-     *     
-     */
-    public Greeting getGreeting() {
-        return greeting;
-    }
-
-    /**
-     * Sets the value of the greeting property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Greeting }
-     *     
-     */
-    public void setGreeting(Greeting value) {
-        this.greeting = value;
-    }
 
 }

@@ -1,5 +1,7 @@
 package com.demo.springshop.config;
 
+import com.demo.springshop.endpoint.GreetingEndpoint;
+import com.demo.springshop.endpoint.ProductsEndpoint;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -27,18 +29,33 @@ public class WebServiceConfig {
     }
 
     @Bean(name = "greeting")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema xsdSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition() {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("GreetingPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace(NAMESPACE_GREETING);
-        wsdl11Definition.setSchema(xsdSchema);
+        wsdl11Definition.setTargetNamespace(GreetingEndpoint.NAMESPACE_URL);
+        wsdl11Definition.setSchema(xsdGreetingSchema());
         return wsdl11Definition;
     }
 
-    @Bean
-    public XsdSchema xsdSchema() {
+    @Bean("greetingSchema")
+    public XsdSchema xsdGreetingSchema() {
         return new SimpleXsdSchema(new ClassPathResource("ws/greeting.xsd"));
+    }
+
+    @Bean(name = "products")
+    public DefaultWsdl11Definition productWsdlDefinition() {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("ProductsPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace(ProductsEndpoint.NAMESPACE_URL);
+        wsdl11Definition.setSchema(xsdProductsSchema());
+        return wsdl11Definition;
+    }
+
+    @Bean("productsSchema")
+    public XsdSchema xsdProductsSchema(){
+        return new SimpleXsdSchema(new ClassPathResource("ws/products.xsd"));
     }
 
 }

@@ -5,5 +5,5 @@
 // Generated on: 2022.05.07 at 09:23:37 PM NOVT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://springshop.demo.com/ws/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.demo.springshop.ws;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://springshop.demo.com/ws/products", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.demo.springshop.ws.products;
